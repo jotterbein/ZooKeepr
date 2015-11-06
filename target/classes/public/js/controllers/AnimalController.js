@@ -2,6 +2,7 @@ app.controller('AnimalController',["$scope", "$http", function($scope, $http) {
 	$scope.animals = [];
     $scope.newAnimal;
     $scope.foods = [];
+    $scope.error = "";
 
     $scope.loadAnimals = function() {
 	   var request = $http.get('/getAnimals');
@@ -36,12 +37,24 @@ app.controller('AnimalController',["$scope", "$http", function($scope, $http) {
         if($scope.createNew){
             $scope.postPromise = $http.post("/addAnimal",JSON.stringify($scope.newAnimal));
         	$scope.postPromise.then( function(data){
+                $scope.error = "";
+            });
+            $scope.postPromise.catch(function(data) {
+                $scope.error = "You have an invald enclosure";
             });
         }
         else {
             $scope.postPromise = $http.put("/updateAnimal",JSON.stringify($scope.newAnimal));
         	$scope.postPromise.then( function(data){
+                $scope.error = "";
+            });
+            $scope.postPromise.catch(function(data) {
+                $scope.error = "You have an invald enclosure";
             });
         }
+    }
+    
+    $scope.cancel = function() {
+        window.location = '#/home';
     }
 }]);

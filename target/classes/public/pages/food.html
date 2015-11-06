@@ -22,9 +22,9 @@
             <md-option ng-value="category" ng-repeat="category in categories">{{category}}</md-option>
             </md-select>
         <md-button class="md-raised md-warn" layout-align="center center" ng-click="update()">Update</md-button>
+        <md-button class="md-raised md-warn" layout-align="center center" ng-click="cancel()">Cancel</md-button>
 
-
-        {{updateMessage}}
+        {{error}}
     </form>
     </md-content>
 </div>

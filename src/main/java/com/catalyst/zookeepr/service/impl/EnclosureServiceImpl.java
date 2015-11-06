@@ -31,7 +31,7 @@ public class EnclosureServiceImpl implements EnclosureService{
 
 	@Override
 	public void updateEnclosure(Enclosure enclosure) {
-		// TODO Auto-generated method stub
+		repository.save(enclosure);
 		
 	}
 

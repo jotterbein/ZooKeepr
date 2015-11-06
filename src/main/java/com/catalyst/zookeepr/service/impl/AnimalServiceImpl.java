@@ -35,4 +35,9 @@ public class AnimalServiceImpl implements AnimalService{
 		return repository.findOne(id);
 	}
 
+	public void setAnimalRepository(AnimalRepository repository) {
+		this.repository = repository;
+		
+	}
+
 }

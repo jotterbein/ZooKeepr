@@ -3,6 +3,7 @@ app.controller('FoodController',["$scope", "$http", function($scope, $http) {
     $scope.foods = [];
     $scope.newFood;
     $scope.categories = ["Fruit", "Meat", "Vegtables", "Other"];
+    $scope.error = "";
 
     $scope.loadFood = function() {
 	   var request = $http.get('/getFood');
@@ -33,13 +34,25 @@ app.controller('FoodController',["$scope", "$http", function($scope, $http) {
         if($scope.createNew){
             $scope.postPromise = $http.post("/addFood",JSON.stringify($scope.newFood));
         	$scope.postPromise.then( function(data){
+                $scope.error = "";
+            });
+            $scope.postPromise.catch(function(data) {
+                $scope.error = "You have an invald Food";
             });
         }
         else {
             $scope.postPromise = $http.put("/updateFood",JSON.stringify($scope.newFood));
         	$scope.postPromise.then( function(data){
+                $scope.error = "";
+            });
+            $scope.postPromise.catch(function(data) {
+                $scope.error = "You have an invald Food";
             });
         }
         
+    }
+    
+    $scope.cancel = function() {
+        window.location = '#/home';
     }
 }]);

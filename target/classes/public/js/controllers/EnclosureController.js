@@ -68,4 +68,8 @@ app.controller('EnclosureController',["$scope", "$http", function($scope, $http)
             });
         }
     }
+    
+    $scope.cancel = function() {
+        window.location = '#/home';
+    }
 }]);

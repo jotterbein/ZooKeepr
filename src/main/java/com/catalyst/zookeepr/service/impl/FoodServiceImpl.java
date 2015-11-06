@@ -36,4 +36,9 @@ public class FoodServiceImpl implements FoodService{
 		return repository.findOne(id);
 	}
 
+	public void setFoodRepository(FoodRepository repository) {
+		this.repository = repository;
+		
+	}
+
 }

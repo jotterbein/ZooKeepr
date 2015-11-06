@@ -14,10 +14,10 @@ public class Validator {
 	 */
 	public boolean validateEnclosure(Enclosure en) throws ValidationException{
 		if(en.getName().isEmpty()) {
-			throw new ValidationException("Name is Empty");
+			throw new ValidationException("Name is Invalid");
 		}
 		if(en.getCondition().isEmpty()) {
-			throw new ValidationException("Condition is Empty");
+			throw new ValidationException("Condition is Invalid");
 		}
 		if(en.getHour() <0 || en.getHour() >= 24) {
 			throw new ValidationException("Hour is invalid");
