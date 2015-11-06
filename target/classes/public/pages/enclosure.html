@@ -1,0 +1,36 @@
+<div layout="column" layout-align="center center" ng-controller="EnclosureController" ng-app="app" class="background">
+    <br/>
+    <md-content layout-padding class="autoScroll">
+    <form name="enclosureForm" ng-model="enclosureForm" >
+        <div layout="row">
+            <md-select placeholder="Select Enclosure" ng-model="enclosure" md-on-open="loadEnclosures()" 
+            md-on-close="selectEnclosure(enclosure)" ng-disabled="createNew">
+            <md-option ng-value="enclosure" ng-repeat="enclosure in enclosures" ng-disabled="createNew">{{enclosure.name}}</md-option>
+            </md-select>
+            <md-checkbox  ng-model="createNew" ng-change="createNewEnclosure()">Create new Enclosure</md-checkbox>
+        </div>
+        <md-input-container >
+        <label>Name</label>
+        <input ng-model="newEnclosure.name" type="text" ng-required="true"  aria-label="Name">
+        </md-input-container>
+        <md-select placeholder="Select Animal" ng-model="animal" md-on-close="selectAnimal(animal)">
+        <md-option ng-value="animal" ng-repeat="animal in animals">{{animal.name}}</md-option>
+        </md-select>
+        <md-input-container md-float>
+        <input ng-model="newEnclosure.number" type="text" ng-required="true" aria-label="number">
+        <label>Number of Animals</label>
+        </md-input-container>
+        <md-input-container md-float>
+        <input ng-model="time" type="time" ng-required="true" aria-label="time">
+        <label>Feeding Time</label>
+        </md-input-container>
+        <md-input-container md-float>
+        <input ng-model="newEnclosure.condition" type="text" ng-required="true" aria-label="condition" />
+        <label>Condition</label>
+        </md-input-container>
+        <md-button class="md-raised md-warn" layout-align="center center" ng-click="update()">Update</md-button>
+        <md-button class="md-raised md-warn" layout-align="center center" ng-click="delete()">Delete</md-button>
+        {{error}}
+    </form>
+    </md-content>
+</div>

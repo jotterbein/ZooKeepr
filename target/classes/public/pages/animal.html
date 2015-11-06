@@ -1,0 +1,30 @@
+<div layout="column" layout-align="center center" ng-controller="AnimalController" ng-app="app" class="background">
+    <br/>
+    <md-content layout-padding class="autoScroll">
+    <form name="animalForm" ng-model="animalForm" >
+        <div layout="row">
+            <md-select placeholder="Select Animal" ng-model="animal" md-on-open="loadAnimals()" 
+            md-on-close="selectAnimal(animal)" ng-disabled="createNew">
+            <md-option ng-value="animal" ng-repeat="animal in animals" ng-disabled="createNew">{{animal.name}}</md-option>
+            </md-select>
+            <md-checkbox  ng-model="createNew" ng-change="createNewAnimal()">Create new Animal</md-checkbox>
+        </div>
+        <md-input-container >
+        <label>Name</label>
+        <input ng-model="newAnimal.name" type="text" ng-required="true"  aria-label="Name">
+        </md-input-container>
+        <md-input-container md-float>
+        <input ng-model="newAnimal.scienceName" type="text" ng-required="true" aria-label="scienceName">
+        <label>Scientific Name</label>
+        </md-input-container>
+        <md-input-container md-float>
+        <input ng-model="newAnimal.url" type="text" ng-required="true" aria-label="url" ng-model="url.text" />
+        <label>URL</label>
+        </md-input-container>
+            <md-select placeholder="Select Favorite Food" ng-model="food" md-on-close="selectFood(food)">
+            <md-option ng-value="food" ng-repeat="food in foods">{{food.name}}</md-option>
+            </md-select>
+        <md-button class="md-raised md-warn" layout-align="center center" ng-click="update()">Update</md-button>
+    </form>
+    </md-content>
+</div>

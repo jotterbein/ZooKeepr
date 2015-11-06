@@ -1,0 +1,30 @@
+<div layout="column" layout-align="center center" ng-controller="FoodController" ng-app="app" class ="background"   >
+    <br/>
+    <md-content layout-padding class="autoScroll">
+    <form name="foodForm" ng-model="foodForm" >
+        <div layout="row">
+            <md-select placeholder="Select Food" ng-model="food" md-on-open="loadFood()" 
+            md-on-close="selectFood(food)" ng-disabled="createNew">
+            <md-option ng-value="food" ng-repeat="food in foods" ng-disabled="createNew">{{food.name}}</md-option>
+            </md-select>
+            <md-checkbox  ng-model="createNew" ng-change="createNewFood()">Create new Food</md-checkbox>
+        </div>
+        <md-input-container >
+        <label>Name</label>
+        <input ng-model="newFood.name" type="text" ng-required="true"  aria-label="Name">
+        </md-input-container>
+        new food: {{ newFood.name}}
+        <md-input-container md-float>
+        <input ng-model="newFood.vendor" type="text" ng-required="true" aria-label="vendor">
+        <label>Vendor Name</label>
+        </md-input-container>
+            <md-select placeholder="Select Category" ng-model="category" md-on-close="selectCategory(food)">
+            <md-option ng-value="category" ng-repeat="category in categories">{{category}}</md-option>
+            </md-select>
+        <md-button class="md-raised md-warn" layout-align="center center" ng-click="update()">Update</md-button>
+
+
+        {{updateMessage}}
+    </form>
+    </md-content>
+</div>

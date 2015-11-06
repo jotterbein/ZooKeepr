@@ -1,0 +1,29 @@
+
+.hidden{
+	visibility: hidden;
+}
+
+input{
+	min-width: 120px;
+}
+input[type="radio"],input[type="checkbox"]{
+	width: 50px;
+}
+
+
+.id{
+	font-size: 15px;
+	font-weight:bold;
+	margin-left: 10px;
+}
+.doorState .glyphicon{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	color: red;
+}
+.errorState{
+	clear: both;
+	width: 100%;
+	font-size: 11px;
+}
