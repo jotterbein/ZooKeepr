@@ -44,6 +44,10 @@ app.controller('EnclosureController',["$scope", "$http", function($scope, $http)
             $scope.postPromise = $http.post("/addEn",JSON.stringify($scope.newEnclosure));
         	$scope.postPromise.then( function(data){
                 $scope.error = "";
+                $scope.newEnclosure = null;
+                $scope.animal = null;
+                $scope.time = null;
+                $scope.loadEnclosures();
             });
             $scope.postPromise.catch(function(data) {
                 $scope.error = "You have an invalid enclosure.";
@@ -61,12 +65,21 @@ app.controller('EnclosureController',["$scope", "$http", function($scope, $http)
     }
     
     $scope.delete = function() {
-        console.log($scope.newEnclosure);
         if($scope.newEnclosure.id != null) {
             $scope.postPromise = $http.delete("/En/"+$scope.newEnclosure.id);
         	$scope.postPromise.then( function(data){
+                $scope.newEnclosure = null;
+                $scope.animal = null;
+                $scope.time = null;
+                $scope.loadEnclosures();
             });
         }
+    }
+    
+    $scope.createNewEnclosure = function() {
+        $scope.newEnclosure = null;
+        $scope.animal = null;
+        $scope.time = null;
     }
     
     $scope.cancel = function() {

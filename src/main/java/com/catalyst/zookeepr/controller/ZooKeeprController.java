@@ -24,7 +24,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 @RestController
 public class ZooKeeprController {
-
+ 
 	@Autowired
 	private EnclosureService enclosureService;
 	
@@ -45,48 +45,6 @@ public class ZooKeeprController {
 	
 	private Validator validator = new Validator();
 	
-	public static class stubAnimal {
-		@JsonProperty("id")
-		private long id;
-		@JsonProperty("name")
-		private String name;
-		@JsonProperty("scienceName")
-		private String scienceName;
-		@JsonProperty("url")
-		private String url;
-		@JsonProperty("food")
-		private long food;		
-		public long getId() {
-			return id;
-		}
-		public void setId(long id) {
-			this.id = id;
-		}
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-		public String getScienceName() {
-			return scienceName;
-		}
-		public void setScienceName(String scienceName) {
-			this.scienceName = scienceName;
-		}
-		public String getUrl() {
-			return url;
-		}
-		public void setUrl(String url) {
-			this.url = url;
-		}
-		public long getFood() {
-			return food;
-		}
-		public void setFood(long food) {
-			this.food = food;
-		}	
-	}
 	
 	public void setEnclosureService(EnclosureService enclosureService) {
 		this.enclosureService = enclosureService;
@@ -174,26 +132,13 @@ public class ZooKeeprController {
 	
 	@RequestMapping(value = "/addAnimal", method = RequestMethod.POST)
 	@ResponseBody
-	public void addAnimal(@RequestBody stubAnimal an) {
-		Animal animal = new Animal();
-		animal.setName(an.getName());
-		animal.setScienceName(an.getScienceName());
-		animal.setUrl(an.getUrl());
-		animal.setFood(an.getFood());
-		validator.validateAnimal(animal);
+	public void addAnimal(@RequestBody Animal animal) {
 		animalService.createAnimal(animal);
 	}
 	
 	@RequestMapping(value = "updateAnimal", method = RequestMethod.PUT)
 	@ResponseBody
-	public void updateAnimal(@RequestBody stubAnimal an) {
-		Animal animal = new Animal();
-		animal.setId(an.getId());
-		animal.setName(an.getName());
-		animal.setScienceName(an.getScienceName());
-		animal.setUrl(an.getUrl());
-		animal.setFood(an.getFood());
-		validator.validateAnimal(animal);
+	public void updateAnimal(@RequestBody Animal animal) {
 		animalService.updateAnimal(animal);
 	}
 

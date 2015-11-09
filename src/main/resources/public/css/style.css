@@ -10,6 +10,15 @@ input[type="radio"],input[type="checkbox"]{
 	width: 50px;
 }
 
+#bod {
+	background-image: url('http://vignette2.wikia.nocookie.net/creepypasta/images/4/4c/Forest-background-18572-19042-hd-wallpapers.jpg/revision/latest?cb=20140729112229');
+}
+
+#title {
+	background-color: white;
+	text-align: center;
+}
+
 .background {
 	background-image: url('http://www.planwallpaper.com/static/images/Nature-Background-Wallpapers-8_gxwmqmj.jpg');
 }
@@ -19,8 +28,8 @@ nav {
 }
 
 img {
-	height: 200px;
-	width: 200px;
+	height: 175px;
+	width: 175px;
 }
 
 .home {

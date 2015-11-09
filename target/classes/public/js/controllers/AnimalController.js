@@ -54,6 +54,11 @@ app.controller('AnimalController',["$scope", "$http", function($scope, $http) {
         }
     }
     
+    $scope.createNewAnimal = function() {
+        $scope.newAnimal = null;
+        $scope.food = null;
+    }
+    
     $scope.cancel = function() {
         window.location = '#/home';
     }

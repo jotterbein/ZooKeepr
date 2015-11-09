@@ -10,7 +10,7 @@ public class Validator {
 	 * Checks enclosure to ensure it is not missing anything
 	 * @param en: Enclosure being checked
 	 * @return: True if everything is in order
-	 * @throws ValidationException
+	 * @throws ValidationException  
 	 */
 	public boolean validateEnclosure(Enclosure en) throws ValidationException{
 		if(en.getName().isEmpty()) {
