@@ -124,4 +124,26 @@ public class ZooKeeprControllerTest {
 		Mockito.verify(anService).updateAnimal(animal);
 		assertEquals(animal, an);
 	}
+	
+	@Test
+	public void testGetFoods() {
+		List<Food> foods = target.getFood();
+		assertEquals(1, foods.size());
+	}
+	
+	@Test
+	public void testCreateFood() {
+		Mockito.when(foodService.createFood(Mockito.any())).thenReturn(food);
+		Food f = target.addFood(food);
+		Mockito.verify(foodService, Mockito.atLeast(2)).createFood(food);
+		assertEquals(food, f);
+	}
+	
+	@Test
+	public void testupdateFood() {
+		Mockito.when(foodService.updateFood(Mockito.any())).thenReturn(food);
+		Food f = target.updateFood(food);
+		Mockito.verify(foodService).updateFood(food);
+		assertEquals(food, f);
+	}
 }

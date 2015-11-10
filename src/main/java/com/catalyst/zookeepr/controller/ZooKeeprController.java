@@ -101,23 +101,25 @@ public class ZooKeeprController {
 	/**
 	 * Adds a food to the database
 	 * @param food: Food to be added
+	 * @return 
 	 */
 	@RequestMapping(value = "/addFood", method = RequestMethod.POST)
 	@ResponseBody
-	public void addFood(@RequestBody Food food) {
+	public Food addFood(@RequestBody Food food) {
 		validator.validateFood(food);
-		foodService.createFood(food);
+		return foodService.createFood(food);
 	}
 	
 	/**
 	 * Updates a food in the database
 	 * @param food: Updated version of a food
+	 * @return 
 	 */
 	@RequestMapping(value = "/updateFood", method = RequestMethod.PUT)
 	@ResponseBody
-	public void updateFood(@RequestBody Food food) {
+	public Food updateFood(@RequestBody Food food) {
 		validator.validateFood(food);
-		foodService.updateFood(food);
+		return foodService.updateFood(food);
 	}
 	
 	/**
