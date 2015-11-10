@@ -25,13 +25,13 @@ public class EnclosureServiceImpl implements EnclosureService{
 	}
 
 	@Override
-	public void createEnclosure(Enclosure enclosure) {
-		repository.save(enclosure);
+	public Enclosure createEnclosure(Enclosure enclosure) {
+		return repository.save(enclosure);
 	}
 
 	@Override
-	public void updateEnclosure(Enclosure enclosure) {
-		repository.save(enclosure);
+	public Enclosure updateEnclosure(Enclosure enclosure) {
+		 return repository.save(enclosure);
 		
 	}
 

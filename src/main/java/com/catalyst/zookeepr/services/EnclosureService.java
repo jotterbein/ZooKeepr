@@ -16,13 +16,13 @@ public interface EnclosureService {
 	 * Adds an enclosure to the database
 	 * @param enclosure: To be added to tbe database
 	 */
-	void createEnclosure(Enclosure enclosure);
+	Enclosure createEnclosure(Enclosure enclosure);
 	
 	/**
 	 * Updates an enclosure
 	 * @param enclosure to be updated
 	 */
-	void updateEnclosure(Enclosure enclosure);
+	Enclosure updateEnclosure(Enclosure enclosure);
 	
 	/**
 	 * Deletes an enclosure from the database

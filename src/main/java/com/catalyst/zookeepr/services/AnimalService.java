@@ -18,13 +18,13 @@ public interface AnimalService {
 	 * Adds a new animal to the databsae
 	 * @param animal: Animal to be added
 	 */
-	void createAnimal(Animal animal);
+	Animal createAnimal(Animal animal);
 	
 	/**
 	 * Updates an animal in the database
 	 * @param animal: The animal to be updated
 	 */
-	void updateAnimal(Animal animal);
+	Animal updateAnimal(Animal animal);
 	
 	Animal getAnimalById(long id);
 }

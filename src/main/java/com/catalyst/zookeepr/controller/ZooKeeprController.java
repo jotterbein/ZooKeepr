@@ -70,16 +70,16 @@ public class ZooKeeprController {
 	
 	@RequestMapping(value = "/addEn", method = RequestMethod.POST)
 	@ResponseBody
-	public void addEnclosure(@RequestBody Enclosure enclosure) {
+	public Enclosure addEnclosure(@RequestBody Enclosure enclosure) {
 		validator.validateEnclosure(enclosure);
-		enclosureService.createEnclosure(enclosure);
+		return enclosureService.createEnclosure(enclosure);
 	}
 	
 	@RequestMapping(value = "/updateEn", method = RequestMethod.PUT)
 	@ResponseBody
-	public void updateEnclosure(@RequestBody Enclosure enclosure) {
+	public Enclosure updateEnclosure(@RequestBody Enclosure enclosure) {
 		validator.validateEnclosure(enclosure);
-		enclosureService.createEnclosure(enclosure);
+		return enclosureService.updateEnclosure(enclosure);
 	}
 	
 	@RequestMapping(value = "/En/{id}", method = RequestMethod.DELETE)
@@ -132,14 +132,14 @@ public class ZooKeeprController {
 	
 	@RequestMapping(value = "/addAnimal", method = RequestMethod.POST)
 	@ResponseBody
-	public void addAnimal(@RequestBody Animal animal) {
-		animalService.createAnimal(animal);
+	public Animal addAnimal(@RequestBody Animal animal) {
+		return animalService.createAnimal(animal);
 	}
 	
 	@RequestMapping(value = "updateAnimal", method = RequestMethod.PUT)
 	@ResponseBody
-	public void updateAnimal(@RequestBody Animal animal) {
-		animalService.updateAnimal(animal);
+	public Animal updateAnimal(@RequestBody Animal animal) {
+		return animalService.updateAnimal(animal);
 	}
 
 }

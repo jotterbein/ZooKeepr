@@ -21,13 +21,13 @@ public class AnimalServiceImpl implements AnimalService{
 	}
 
 	@Override
-	public void createAnimal(Animal animal) {
-		repository.save(animal);
+	public Animal createAnimal(Animal animal) {
+		return repository.save(animal);
 	}
 
 	@Override
-	public void updateAnimal(Animal animal) {
-		repository.save(animal);		
+	public Animal updateAnimal(Animal animal) {
+		return repository.save(animal);		
 	}
 
 	@Override
